@@ -2,8 +2,14 @@ const express = require('express');
 const app = express();
 
 app.get('/', (req, res) => {
-  res.send('Hello Node.js');
-})
+  if (process.env.NODE_ENV === 'development') {
+    res.send('development');
+  } else {
+    res.send('production');
+  }
+  
+  
+});
 
 const port = process.env.PORT || 7777;
 
